@@ -12,7 +12,7 @@ const Result = ({
 }) => {
   return (
     <div className=" flex flex-col items-center justify-center p-4 gap-4">
-      <span>Congratulations you have won the game with {moves} moves.</span>
+      <span>You completed the game with {moves} moves.</span>
       <button
         className="block bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded cursor-pointer "
         onClick={() => {
