@@ -1,37 +1,31 @@
-import { useState } from "react";
-
 const Card = ({
   src,
   tag,
+  onClick,
+  disabled,
   id,
-  gameStarted,
 }: {
   src: string;
   tag: string;
   id: string;
-  gameStarted: boolean;
+  onClick: (id: string, tag: string) => void;
+  disabled: boolean;
 }) => {
-  const [clicked, setClicked] = useState(false);
-
-  function handleClick() {
-    document.getElementById(id)?.classList.add("flip");
-    setClicked(true);
-  }
   return (
     <div className="grid-item">
-      <span className="hidden">{tag}</span>
-      <button
-        className="thecard"
+      <div
+        className="thecard hover:cursor-pointer"
         id={id}
-        onClick={handleClick}
-        disabled={clicked || gameStarted}
+        onClick={() => {
+          if (!disabled) onClick(tag, id);
+        }}
       >
         <div className="front"></div>
         <div className="back">
           {" "}
           <img src={src} alt="logo" />
         </div>
-      </button>
+      </div>
     </div>
   );
 };

@@ -27,11 +27,11 @@ export const imagesSrc = [
   [mario, "mario", "8"],
   [mario, "mario", "9"],
   [thor, "thor", "10"],
-  [thor, "thor", "12"],
+  [thor, "thor", "11"],
+  [venom, "venom", "12"],
   [venom, "venom", "13"],
-  [venom, "venom", "14"],
+  [michael, "michael", "14"],
   [michael, "michael", "15"],
-  [michael, "michael", "16"],
 ];
 
 export default shuffleArray;

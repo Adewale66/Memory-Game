@@ -1,30 +1,31 @@
-import Card from "./components/Card";
-import { imagesSrc } from "./util/helpers";
-import { useState, useMemo } from "react";
-import shuffleArray from "./util/helpers";
+import { useState } from "react";
+import clsx from "clsx";
+import MemoryGame from "./components/MemoryGame";
 
 function App() {
   const [started, setStarted] = useState(false);
-  const [count, setCount] = useState(0);
-  const res = useMemo(() => shuffleArray(imagesSrc), []);
+
   return (
-    <main className=" flex flex-col items-center justify-center  w-full min-h-screen  p-4">
+    <main className=" flex flex-col items-center justify-center  w-full min-h-screen   p-4">
       <div className="mb-3 text-xl font-bold text-gray-700">
         <h1>Memory Game</h1>
       </div>
-      <section className="container grid grid-cols-4 gap-8">
-        {res.map((s, i) => {
-          return (
-            <Card
-              key={i}
-              src={s[0]}
-              tag={s[1]}
-              id={s[2]}
-              gameStarted={started}
-            />
-          );
-        })}
-      </section>
+      <button
+        className={clsx(
+          "rounded-md bg-blue-500 p-2 text-white",
+          started && "hidden"
+        )}
+        onClick={() => setStarted(true)}
+      >
+        Start Game
+      </button>
+
+      {started && <MemoryGame />}
+      <footer className="mt-2 text-sm  text-gray-700 text-center ">
+        &#169; 2023 By <a href="https://github.com/Adewale66">Adewale Kujore</a>
+        . &#174; All rights Reserved | Icons by{" "}
+        <a href="https://icons8.com/">icons8</a>
+      </footer>
     </main>
   );
 }
